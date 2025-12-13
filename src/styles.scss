@@ -1,0 +1,171 @@
+    /* You can add global styles to this file, and also import other style files */
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* src/styles.css */
+
+/* نربط الطوست بكلاس مخصص لسهولة الاستهداف */
+.custom-toast .p-toast-message {
+  @apply flex items-start gap-3 px-4 py-3 rounded-md shadow-md border-l-4;
+  /* ارتفاع صغير ليتوافق مع التصميم */
+}
+
+/* أيقونة الرسالة */
+.custom-toast .p-toast-message .p-toast-icon {
+  @apply text-xl mt-0.5;
+}
+
+/* ملخص و تفصيل */
+.custom-toast .p-toast-summary {
+  @apply font-semibold leading-tight;
+}
+.custom-toast .p-toast-detail {
+  @apply text-sm mt-0.5;
+}
+
+/* ألوان حسب نوع الرسالة */
+.custom-toast .p-toast-message-success {
+  @apply bg-green-50 border-green-500 text-green-800;
+}
+.custom-toast .p-toast-message-info {
+  @apply bg-blue-50 border-blue-500 text-blue-800;
+}
+.custom-toast .p-toast-message-warn {
+  @apply bg-yellow-50 border-yellow-500 text-yellow-800;
+}
+.custom-toast .p-toast-message-error {
+  @apply bg-red-50 border-red-500 text-red-800;
+}
+
+/* زر الإغلاق */
+.custom-toast .p-toast-close {
+  @apply text-gray-500 hover:text-gray-700 ml-2;
+}
+
+/* تجاوب عند الشاشات الصغيرة (تصغير المسافات وخط أصغر) */
+@media (max-width: 640px) {
+  .custom-toast .p-toast-message {
+    @apply px-3 py-2 gap-2;
+  }
+  .custom-toast .p-toast-summary { @apply text-sm; }
+  .custom-toast .p-toast-detail { @apply text-xs; }
+}
+/* --------------------------------------------
+  Tailwind + custom PrimeNG tweaks
+  استخدم @apply لو مشروعك يدعم @apply في ملفات scss عبر Tailwind
+---------------------------------------------*/
+
+/* لو تستخدم SCSS مع Tailwind: */
+.custom-password .p-inputtext {
+  @apply text-base;
+  /* force LTR inside the input so النص داخل الباسورد يبدأ من اليسار */
+  direction: ltr !important;
+  text-align: left !important;
+  padding-right: 0.75rem !important; /* يتوافق مع pr-3 */
+}
+
+/* reposition eye icon to the right (visual) */
+::ng-deep .custom-password .p-password-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.75rem; /* بجانب الحافة اليمنى */
+  left: auto !important;
+  font-size: 1.05rem;
+  color: rgba(75, 85, 99, 1); /* slate-600 */
+}
+/* login.component.scss */
+
+/* make sure RTL layout and nicer defaults */
+.rtl { direction: rtl; }
+
+/* PrimeNG p-messages styling so errors have colored bg */
+.p-messages {
+  width: 100%;
+  margin-top: 0.25rem;
+
+  .p-message {
+    @apply rounded-md p-3 flex items-start gap-3 shadow-sm border-l-4;
+
+    &.p-message-error {
+      @apply bg-rose-50 border-rose-500 text-rose-800;
+    }
+    &.p-message-warn {
+      @apply bg-amber-50 border-amber-500 text-amber-800;
+    }
+    &.p-message-info {
+      @apply bg-sky-50 border-sky-500 text-sky-800;
+    }
+    &.p-message-success {
+      @apply bg-emerald-50 border-emerald-500 text-emerald-800;
+    }
+  }
+
+  .p-message-icon {
+    @apply mt-1 text-lg;
+  }
+  .p-message-summary {
+    @apply font-semibold;
+  }
+  .p-message-detail {
+    @apply text-sm;
+  }
+}
+
+/* Password tweaks: move eye icon to the right and make input LTR for numbers/text */
+::ng-deep .p-password {
+  .p-inputtext {
+    direction: ltr !important;
+    text-align: left !important;
+    @apply pr-12; /* space for icon */
+  }
+  .p-password-icon {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem; /* to right side */
+    transform: translateY(-50%);
+    left: auto !important;
+    @apply text-slate-600;
+  }
+}
+
+/* Input focus / border */
+::ng-deep .p-inputtext, ::ng-deep .p-dropdown .p-dropdown-label {
+  @apply transition-shadow duration-150;
+}
+
+/* make dropdown panel items larger and opaque (use panelStyleClass="custom-dropdown-panel" if needed) */
+::ng-deep .p-dropdown-panel .p-dropdown-item {
+  @apply py-3 text-base bg-white text-slate-800;
+}
+::ng-deep .p-dropdown-panel .p-dropdown-item.p-highlight {
+  @apply bg-indigo-50 text-indigo-700;
+}
+
+/* small screens adjustments */
+@media (max-width: 640px) {
+  .p-messages .p-message { @apply text-sm; }
+  ::ng-deep .p-dropdown-panel .p-dropdown-item { @apply py-2 text-sm; }
+}
+
+/* optional: custom toast (if used) */
+.custom-toast .p-toast-message {
+  @apply rounded-md px-4 py-3 shadow-md;
+}
+.custom-toast .p-toast-message-success { @apply bg-emerald-50 border-emerald-500 text-emerald-900 border-l-4; }
+.custom-toast .p-toast-message-error { @apply bg-rose-50 border-rose-500 text-rose-900 border-l-4; }
+
+.hover-item
+{
+    background-color: white;
+    // color: rgb(29, 78, 216);
+    transition: background-color 0.8s ease;
+    // transition: color 0.5s ease;
+ &:hover {
+    background-color: rgb(255, 226, 60);
+    color: white;
+    transition: background-color 0.8s ease;
+    transition: color 0.5s ease;
+}
+}

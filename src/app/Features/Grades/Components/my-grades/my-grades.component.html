@@ -1,0 +1,115 @@
+<div
+  class="min-h-screen w-full flex flex-col items-center bg-gray-50 py-6 px-4"
+>
+  <div id="contentToConvert" class="w-full max-w-5xl">
+    
+    <div
+      class="bg-white rounded-2xl shadow-md p-5 mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+    >
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+        <h2
+          class="text-center sm:text-right text-xl sm:text-2xl font-bold text-gray-800"
+        >
+          {{ grades.studentName }}
+        </h2>
+      </div>
+
+      <div class="flex items-center justify-center sm:justify-end gap-3 flex-wrap">
+        <div class="flex items-center gap-2 bg-gray-50 px-3 py-1 rounded-lg border">
+          <div class="text-sm text-gray-600">إجمالي المواد:</div>
+          <div class="text-blue-700 font-bold">
+            {{ grades.grades.length || 0 }}
+          </div>
+        </div>
+
+        <button
+          (click)="exportToPDF()"
+          class="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors shadow-sm text-sm font-medium"
+        id="printButton"  >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>PDF</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hidden lg:block">
+      <div class="overflow-x-auto bg-white rounded-2xl shadow overflow-y-auto">
+        <table class="min-w-full table-auto">
+          <thead class="bg-blue-600 text-white">
+            <tr>
+              <th class="py-3 px-4 text-right text-sm sm:text-base">المادة</th>
+              <th class="py-3 px-4 text-center text-sm sm:text-base">الحضور</th>
+              <th class="py-3 px-4 text-center text-sm sm:text-base">المهام</th>
+              <th class="py-3 px-4 text-center text-sm sm:text-base">العملي</th>
+              <th class="py-3 px-4 text-center text-sm sm:text-base">
+                المجموع
+              </th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            @for ( grade of grades.grades; track $index ) {
+            <tr class="border-b last:border-b-0 hover:bg-gray-50 transition">
+              <td class="py-3 px-4 text-right font-medium text-sm sm:text-base">
+                {{ grade.courseName }}
+              </td>
+              <td class="py-3 px-4 text-center text-sm sm:text-base">
+                {{ grade.attendance }}
+              </td>
+              <td class="py-3 px-4 text-center text-sm sm:text-base">
+                {{ grade.tasks }}
+              </td>
+              <td class="py-3 px-4 text-center text-sm sm:text-base">
+                {{ grade.practical }}
+              </td>
+              <td
+                class="py-3 px-4 text-center text-sm sm:text-base font-semibold text-blue-700"
+              >
+                {{ grade.totalScore }}
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lg:hidden space-y-4">
+      @for ( grade of grades.grades; track $index ) {
+      <div
+        class="bg-white rounded-xl shadow p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+      >
+        <div class="flex-1">
+          <div class="text-right font-semibold text-base">
+            {{ grade.courseName }}
+          </div>
+          <div class="mt-2 text-sm text-gray-500 flex gap-3 flex-wrap">
+            <div class="flex items-center gap-2">
+              <span class="text-xs">الحضور</span>
+              <span class="font-medium">{{ grade.attendance }}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs">المهام</span>
+              <span class="font-medium">{{ grade.tasks }}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs">العملي</span>
+              <span class="font-medium">{{ grade.practical }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <div class="text-xs text-gray-500 text-center">المجموع</div>
+          <div
+            class="bg-blue-50 text-blue-700 font-bold px-3 py-2 rounded-md text-lg"
+          >
+            {{ grade.totalScore }}
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

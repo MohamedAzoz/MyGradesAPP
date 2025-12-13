@@ -1,0 +1,57 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+  <div
+    class="w-full max-w-xl bg-white rounded-3xl shadow-xl p-8 text-center relative"
+    dir="rtl"
+  >
+    <!-- Icon -->
+    <div
+      class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-100 flex items-center justify-center"
+    >
+      <i class="pi pi-file-excel text-blue-600 text-3xl"></i>
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-2xl font-extrabold text-gray-800 mb-2">
+      رفع ملف الدرجات
+    </h2>
+
+    <!-- Description -->
+    <p class="text-gray-500 mb-6 text-sm">
+      يرجى رفع ملف Excel يحتوي على درجات الطلاب
+    </p>
+
+    <!-- Upload Area -->
+    <div
+      class="border-2 border-dashed border-gray-300 rounded-2xl p-8 mb-6 hover:border-blue-500 transition"
+    >
+      <p-fileUpload
+        #uploader
+        mode="basic"
+        name="file"
+        [customUpload]="true"
+        (uploadHandler)="customUploadHandler($event)"
+        chooseLabel="اختيار ملف"
+        chooseIcon="pi pi-upload"
+        [showUploadButton]="false"
+        [showCancelButton]="false"
+        accept=".xlsx,.xls,.csv"
+        maxFileSize="1000000"
+        class="w-full"
+      >
+      </p-fileUpload>
+
+      <p class="text-xs text-gray-400 mt-3">
+        الصيغ المدعومة: XLSX, XLS, CSV — الحد الأقصى للحجم 1MB
+      </p>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      (click)="uploader.upload()"
+      class="absolute bottom-6 right-6 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-full shadow-lg transition"
+    >
+      <i class="pi pi-cloud-upload"></i>
+      رفع الملف
+    </button>
+  </div>
+</div>

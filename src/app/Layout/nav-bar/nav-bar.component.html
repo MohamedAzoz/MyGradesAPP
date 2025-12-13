@@ -1,0 +1,160 @@
+<nav
+  class="bg-white dark:bg-gray-900/90 dark:text-white backdrop-blur-sm shadow-sm border-b border-gray-200 dark:border-gray-700"
+  dir="rtl"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Left: Logo -->
+      <div class="flex items-center gap-3">
+        <a routerLink="/main/home" class="flex items-center">
+          <img
+            src="./assets/svgviewer-output (3).svg"
+            alt="logo"
+            class="w-10 h-10 rounded-md object-cover shadow-sm"
+          />
+          <span class="mr-3 text-lg font-semibold text-gray-800 dark:text-white"
+            >نظام تسجيل الدرجات</span
+          >
+        </a>
+      </div>
+
+      <!-- Center: Desktop Links -->
+      <div class="hidden md:flex items-center gap-2">
+        <ng-container *ngFor="let it of items">
+          <a
+            *ngIf="it.routerLink"
+            [routerLink]="it.routerLink"
+            class="px-3 py-2 rounded-full text-sm font-medium text-gray-700 hover:bg-blue-50 dark:text-white hover:text-blue-700 transition"
+            [ngClass]="{ 'bg-blue-50 text-blue-700': isActive(it) }"
+            aria-current="page"
+          >
+            <i [class]="it.icon + ' ml-2'"></i>
+            <span>{{ it.label }}</span>
+          </a>
+        </ng-container>
+      </div>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Theme toggle -->
+        <button
+          (click)="toggleDarkMode()"
+          class="hidden sm:inline-flex items-center justify-center dark:bg-yellow-300 w-10 h-10 rounded-md border dark:text-white hover:bg-gray-50 dark:hover:bg-gray-500 transition"
+          aria-label="Toggle theme"
+        >
+          <i class="pi" [ngClass]="darkMode ? 'pi-sun' : 'pi-moon'"></i>
+        </button>
+
+        <!-- Profile / Role -->
+        <div class="hidden md:flex items-center gap-3">
+          <a
+            *ngIf="isStudent()"
+            [routerLink]="['/main/profile']"
+            class="flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-blue-700 dark:text-white"
+          >
+            <i class="pi pi-user text-lg"></i>
+            <span class="max-w-[140px] truncate">{{ username }}</span>
+          </a>
+
+          <a
+            *ngIf="isAssistant()"
+            [routerLink]="['/main/profile-assistant']"
+            class="flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-blue-700 dark:text-white"
+          >
+            <i class="pi pi-user text-lg"></i>
+            <span class="max-w-[140px] truncate">{{ usernameAssistant }}</span>
+          </a>
+          <a
+            *ngIf="isDoctor()"
+            [routerLink]="['/main/profile-doctor']"
+            class="flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-blue-700 dark:text-white"
+          >
+            <i class="pi pi-user text-lg"></i>
+            <span class="max-w-[140px] truncate">{{ usernameDoctor }}</span>
+          </a>
+
+          <button
+            (click)="logout()"
+            class="inline-flex items-center gap-2 px-3 py-2 bg-orange-500 text-white rounded-md hover:bg-red-600 transition"
+          >
+            <i class="pi pi-sign-out"></i>
+            <span class="text-sm font-semibold">تسجيل الخروج</span>
+          </button>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          (click)="mobileOpen = !mobileOpen"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+          aria-label="Open menu"
+          [attr.aria-expanded]="mobileOpen"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              *ngIf="!mobileOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              *ngIf="mobileOpen"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    *ngIf="mobileOpen"
+    class="md:hidden border-t border-gray-200 bg-white/95"
+  >
+    <div class="px-4 pt-3 pb-4 space-y-1">
+      <ng-container *ngFor="let it of items">
+        <a
+          *ngIf="it.routerLink"
+          [routerLink]="it.routerLink"
+          (click)="mobileOpen = false"
+          class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition"
+        >
+          <i [class]="it.icon"></i>
+          <span class="font-medium">{{ it.label }}</span>
+        </a>
+      </ng-container>
+
+      <div class="pt-2 border-t border-gray-100">
+        <a
+          *ngIf="isStudent()"
+          [routerLink]="['/profile']"
+          (click)="mobileOpen = false"
+          class="block px-3 py-2 text-gray-700 hover:bg-gray-50"
+          >الملف الشخصي — {{ username }}</a
+        >
+        <a
+          *ngIf="isAssistant()"
+          [routerLink]="['/profile-assistant']"
+          (click)="mobileOpen = false"
+          class="block px-3 py-2 text-gray-700 hover:bg-gray-50"
+          >الملف الشخصي — {{ usernameAssistant }}</a
+        >
+        <button
+          (click)="logout()"
+          class="w-full text-right px-3 py-2 text-white bg-orange-500 rounded-md mt-2"
+        >
+          تسجيل الخروج
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

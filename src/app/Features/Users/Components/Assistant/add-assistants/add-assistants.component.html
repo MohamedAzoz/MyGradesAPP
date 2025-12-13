@@ -1,0 +1,107 @@
+<div
+  class="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-10"
+  dir="rtl"
+>
+  <div
+    class="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 sm:p-8 flex flex-col gap-6"
+  >
+    <!-- Icon -->
+    <div class="flex justify-center">
+      <div
+        class="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+      >
+        <i class="pi pi-users text-3xl"></i>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div class="text-center">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-800">
+        رفع بيانات المعيدين
+      </h2>
+      <p class="text-gray-500 mt-2 text-sm">
+        يرجى رفع ملف Excel يحتوي على بيانات المعيدين
+      </p>
+    </div>
+
+    <!-- Default Password -->
+    <div class="w-full">
+      <label
+        for="defaultPassword"
+        class="block mb-2 text-sm font-semibold text-gray-700"
+      >
+        كلمة المرور الافتراضية
+      </label>
+      <p-inputGroup class="w-full">
+        <p-inputGroupAddon
+          class="bg-blue-50 border border-blue-200 rounded-l-md p-2"
+        >
+          <i class="pi pi-lock text-slate-600 text-2xl"></i>
+        </p-inputGroupAddon>
+        <input
+          pPassword
+          type="password"
+          id="defaultPassword"
+          [(ngModel)]="defaultPassword"
+          name="defaultPassword"
+          placeholder="أدخل كلمة المرور الافتراضية"
+          class="w-9/12 p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base"
+        />
+        <p-inputGroupAddon
+          class="bg-gray-50 border border-blue-200 rounded-l-md p-2 cursor-pointer"
+        >
+          <i
+            (click)="togglePassword('defaultPassword')"
+            [hidden]="visibility['defaultPassword']"
+            class="pi pi-eye text-slate-600 text-2xl"
+          ></i>
+          <i
+            (click)="togglePassword('defaultPassword')"
+            [hidden]="!visibility['defaultPassword']"
+            class="pi pi-eye-slash text-slate-600 text-2xl"
+          ></i>
+        </p-inputGroupAddon>
+      </p-inputGroup>
+    </div>
+
+    <!-- Toast -->
+    <p-toast></p-toast>
+
+    <!-- File Upload -->
+    <div
+      class="w-full border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center font-semibold text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-all duration-300 cursor-pointer"
+    >
+      <p-fileUpload
+        #uploader
+        mode="basic"
+        name="file"
+        [customUpload]="true"
+        (uploadHandler)="customUploadHandler($event)"
+        [auto]="false"
+        chooseLabel="اختيار ملف"
+        chooseIcon="pi pi-upload"
+        [showUploadButton]="false"
+        [showCancelButton]="false"
+        accept=".xlsx, .xls"
+        maxFileSize="1000000"
+        (onUpload)="onUpload($event)"
+        (onError)="onError($event)"
+        class="w-full"
+      >
+      </p-fileUpload>
+
+      <p class="mt-2 text-xs text-gray-400 text-center">
+        الصيغ المدعومة: XLSX, XLS — الحد الأقصى 1MB
+      </p>
+    </div>
+
+    <!-- Submit Button -->
+    <p-button
+      label="رفع الملف"
+      icon="pi pi-cloud-upload"
+      (onClick)="uploader.upload()"
+      class="w-full flex justify-center items-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-lg font-bold transition"
+      styleClass="w-40"
+    />
+  </div>
+</div>
