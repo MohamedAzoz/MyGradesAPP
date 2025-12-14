@@ -1,16 +1,16 @@
 <div
-  class="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-50 to-slate-100 py-8"
+  class="min-h-screen flex items-center justify-center bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 from-slate-50 to-slate-100 py-8"
 >
   <form
     [formGroup]="loginForm"
     (ngSubmit)="submit()"
-    class="w-full max-w-md bg-white p-6 sm:p-8 rounded-2xl shadow-lg rtl"
+    class="w-full max-w-md bg-white dark:bg-gray-900 dark:text-white p-6 sm:p-8 rounded-2xl shadow-lg rtl"
     dir="rtl"
     aria-labelledby="loginTitle"
   >
     <h1
       id="loginTitle"
-      class="text-center text-2xl sm:text-3xl font-extrabold text-slate-800 mb-6"
+      class="text-center text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white mb-6"
     >
       تسجيل الدخول
     </h1>
@@ -19,26 +19,26 @@
     <div class="mb-3">
       <label
         for="nationalId"
-        class="block text-sm font-medium text-slate-700 mb-2"
+        class="block text-sm font-medium text-slate-700 mb-2 dark:text-white"
         >الرقم القومي</label
       >
       <p-inputGroup class="w-full">
         <p-inputGroupAddon
-          class="bg-blue-50 border border-blue-200 rounded-l-md p-2"
+          class="bg-blue-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700"
         >
-          <i class="pi pi-id-card text-slate-600 text-2xl"></i>
+          <i class="pi pi-id-card text-slate-600 text-2xl dark:text-gray-400"></i>
         </p-inputGroupAddon>
         <input
           id="nationalId"
           pInputText
           formControlName="nationalId"
           placeholder="أدخل الرقم القومي"
-          class="w-full rounded-r-md p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base"
+          class="w-full rounded-r-md p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-indigo-600"
           aria-describedby="nationalIdError"
           [ngClass]="{
-            'bg-green-200 border-green-500':
+            'bg-green-200 border-green-500 dark:bg-green-900 dark:border-green-700':
               nationalId.valid && (nationalId.dirty || nationalId.touched),
-            'bg-red-200 border-red-500':
+            'bg-red-200 border-red-500 dark:bg-red-900 dark:border-red-700':
               nationalId.invalid && (nationalId.dirty || nationalId.touched)
           }"
         />
@@ -77,15 +77,15 @@
     <div class="mb-4">
       <label
         for="password"
-        class="block text-sm font-medium text-slate-700 mb-2"
+        class="block text-sm font-medium text-slate-700 mb-2 dark:text-white"
         >كلمة السر</label
       >
 
       <p-inputGroup class="w-full">
         <p-inputGroupAddon
-          class="bg-blue-50 border border-blue-200 rounded-l-md p-2"
+          class="bg-blue-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700"
         >
-          <i class="pi pi-lock text-slate-600 text-2xl"></i>
+          <i class="pi pi-lock text-slate-600 text-2xl dark:text-gray-400"></i>
         </p-inputGroupAddon>
         <input
           pPassword
@@ -93,27 +93,27 @@
           id="password"
           formControlName="password"
           placeholder="أدخل كلمة المرور"
-          class="w-9/12 p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base"
+          class="w-9/12 p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-indigo-600"
           aria-describedby="passwordError"
           [ngClass]="{
-            'bg-green-200 border-green-500':
+            'bg-green-200 border-green-500 dark:bg-green-900 dark:border-green-700':
               password.valid && (password.dirty || password.touched),
-            'bg-red-200 border-red-500':
+            'bg-red-200 border-red-500 dark:bg-red-900 dark:border-red-700':
               password.invalid && (password.dirty || password.touched)
           }"
         />
         <p-inputGroupAddon
-          class="bg-gray-50 border border-blue-200 rounded-l-md p-2"
+          class="bg-gray-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700"
         >
           <i
             (click)="togglePassword('password')"
             [hidden]="visibility['password']"
-            class="pi pi-eye text-slate-600 text-2xl"
+            class="pi pi-eye text-slate-600 text-2xl dark:text-gray-400"
           ></i>
           <i
             (click)="togglePassword('password')"
             [hidden]="!visibility['password']"
-            class="pi pi-eye-slash text-slate-600 text-2xl"
+            class="pi pi-eye-slash text-slate-600 text-2xl dark:text-gray-400"
           ></i>
         </p-inputGroupAddon>
       </p-inputGroup>
@@ -151,7 +151,7 @@
         type="submit"
         label="تسجيل الدخول"
         [disabled]="loginForm.invalid"
-        class="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition"
+        class="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-700 dark:to-blue-700 text-white dark:text-gray-300 font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition"
       ></p-button>
     </div>
   </form>

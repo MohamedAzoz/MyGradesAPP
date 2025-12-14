@@ -11,9 +11,7 @@
     </div>
 
     <!-- Title -->
-    <h2 class="text-2xl font-extrabold text-gray-800 mb-2">
-      رفع ملف الدرجات
-    </h2>
+    <h2 class="text-2xl font-extrabold text-gray-800 mb-2">رفع ملف الدرجات</h2>
 
     <!-- Description -->
     <p class="text-gray-500 mb-6 text-sm">
@@ -22,7 +20,7 @@
 
     <!-- Upload Area -->
     <div
-      class="border-2 border-dashed border-gray-300 rounded-2xl p-8 mb-6 hover:border-blue-500 transition"
+      class="border-2 border-dashed border-gray-300 rounded-2xl p-8 mb-6 hover:border-blue-500 transition dark:border-gray-700 dark:hover:border-blue-400"
     >
       <p-fileUpload
         #uploader
@@ -34,21 +32,21 @@
         chooseIcon="pi pi-upload"
         [showUploadButton]="false"
         [showCancelButton]="false"
-        accept=".xlsx,.xls,.csv"
+        accept=".xlsx,.xls"
         maxFileSize="1000000"
         class="w-full"
       >
       </p-fileUpload>
 
-      <p class="text-xs text-gray-400 mt-3">
-        الصيغ المدعومة: XLSX, XLS, CSV — الحد الأقصى للحجم 1MB
+      <p class="text-xs text-gray-400 mt-3 dark:text-gray-500">
+        الصيغ المدعومة: XLSX, XLS — الحد الأقصى للحجم 1MB
       </p>
     </div>
 
     <!-- Submit Button -->
     <button
       (click)="uploader.upload()"
-      class="absolute bottom-6 right-6 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-full shadow-lg transition"
+      class="absolute bottom-6 right-6 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-full shadow-lg transition dark:bg-blue-500 dark:hover:bg-blue-600"
     >
       <i class="pi pi-cloud-upload"></i>
       رفع الملف
