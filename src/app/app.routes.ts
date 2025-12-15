@@ -102,7 +102,6 @@ export const routes: Routes = [
       {
         path: 'subject/:subjectId',
         title: 'Subject Info',
-        canActivate: [assistantGuard],
         loadComponent: () =>
           import(
             './Features/Subjects/subject-info/subject-info.component'
