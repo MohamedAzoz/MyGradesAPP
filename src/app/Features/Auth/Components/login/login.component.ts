@@ -142,8 +142,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.token);
           // for (const role of response.roles) {
           localStorage.setItem(`role`, response.roles[0]);
-          localStorage
-            .setItem('tokenExpiry', response.expiresOn ? response.expiresOn.toString() : '');
+          localStorage.setItem(
+            'tokenExpiry',
+            response.expiresOn ? response.expiresOn.toString() : ''
+          );
           // }
           localStorage.setItem('nationalId', response.nationalId || '');
           localStorage.setItem('fullName', response.fullName || '');

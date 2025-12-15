@@ -11,18 +11,18 @@ import { IChangePassword } from '../Models/ichange-password';
 })
 export class AuthServiceService {
   constructor(private http: HttpClient) {}
-  
+
   isAuthenticated(): boolean {
-    return localStorage.getItem('token')? true : false;
+    return localStorage.getItem('token') ? true : false;
   }
-   isAdmin(): boolean {
+  isAdmin(): boolean {
     return localStorage.getItem('role') === 'Admin';
   }
   isStudent(): boolean {
     return localStorage.getItem('role') === 'Student';
   }
   isAssistant(): boolean {
-    return localStorage.getItem('role') === 'ASSISTANT';
+    return localStorage.getItem('role') === 'Assistant';
   }
   isDoctor(): boolean {
     return localStorage.getItem('role') === 'Doctor';

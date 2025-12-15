@@ -6,7 +6,7 @@ export const assistantGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const _auth = inject(AuthServiceService);
   const role = localStorage.getItem('role');
-  if (_auth.isAssistant() || role === 'ASSISTANT') {
+  if (_auth.isAssistant() || role === 'Assistant') {
     return true;
   }
   return router.parseUrl('/login');
