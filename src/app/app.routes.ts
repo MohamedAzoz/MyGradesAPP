@@ -72,7 +72,6 @@ export const routes: Routes = [
       {
         path: 'template-grades/:subjectId',
         title: 'Template Grades',
-        canActivate: [assistantGuard],
         loadComponent: () =>
           import(
             './Features/ExportTemplates/components/template-grades/template-grades.component'
