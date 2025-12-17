@@ -8,7 +8,8 @@ import { MenubarModule } from 'primeng/menubar';
   standalone: true,
   imports: [ToastModule, NgxSpinnerModule, MenubarModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
+  
 })
 export class AppComponent {
   title = 'MyGrade';

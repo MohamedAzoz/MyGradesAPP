@@ -1,12 +1,44 @@
-
 <p-toast styleClass="custom-toast" position="top-right"> </p-toast>
 
 <!-- <app-main></app-main> -->
 <router-outlet></router-outlet>
-<!-- <ngx-spinner
-  bdColor="rgba(0,0,0,0.3)"
-  size="medium"
-  color="#f97316"
-  type="line-scale"
+
+
+<ngx-spinner 
+  bdColor="rgba(0, 0, 0, 0.8)" 
+  size="medium" 
+  color="#fff" 
   [fullScreen]="true"
+>
+  <div class="custom-spinner-wrapper">
+    <div class="spinner-ring"></div>
+    
+    <div class="logo-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100" height="100">
+        <path style="fill:#fe843f" d="M100 0C44.771 0 0 44.772 0 100c0 43.048 27.202 79.74 65.354 93.832l134.4 -100.818C196.166 41.046 152.88 0 100 0"/>
+        <path style="fill:#fc5a37" d="M200 100c0 -2.349 -0.087 -4.677 -0.247 -6.986L148.913 42.174l-119.565 115.652 36.006 36.006C76.149 197.82 87.82 200 100 200c55.229 0 100 -44.772 100 -100"/>
+        <path style="fill:#12b5ff" d="M112.287 75.217v50L170.652 75.217zM29.348 75.217l58.365 50V75.217z"/>
+        <path style="fill:#fff" d="M51.087 142.174V42.174H100l4.348 100z"/>
+        <path style="fill:#e0f8ff" d="M100 42.174h48.913v100H100z"/>
+        <path style="fill:#7be3ff" d="m100 125.217 -12.287 -8.696 -33.53 16.304L29.348 157.826h141.304l-24.835 -25 -33.53 -16.304z"/>
+        <path style="fill:#487ed2" d="M95.777 78.517 100 67.43l4.348 -6.88 -4.348 -6.88h-4.063l-17.391 45.652 8.126 3.096 5.792 -15.205H100l4.348 -4.348 -4.348 -4.348z"/>
+        <path style="fill:#adeeff" d="M29.348 75.217v82.609l58.365 -41.304z"/>
+        <path style="fill:#48d9ff" d="M112.287 116.522 170.652 157.826V75.217z"/>
+        <path style="fill:#1d54bd" d="M104.063 53.67H100v13.761l4.223 11.086H100v8.696h7.536l5.792 15.205 8.126 -3.096z"/>
+      </svg>
+    </div>
+  </div>
+</ngx-spinner>
+
+
+<!-- <ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+  [fullScreen]="true"
+  template='
+<svg xmlns="http://www.w3.org/2000/svg" 
+viewBox="0 0 200 200" xml:space="preserve" width="200" height="200">
+<path style="fill:#fe843f" d="M100 0C44.771 0 0 44.772 0 100c0 43.048 27.202 79.74 65.354 93.832l134.4 -100.818C196.166 41.046 152.88 0 100 0"/><path style="fill:#fc5a37" d="M200 100c0 -2.349 -0.087 -4.677 -0.247 -6.986L148.913 42.174l-119.565 115.652 36.006 36.006C76.149 197.82 87.82 200 100 200c55.229 0 100 -44.772 100 -100"/><path style="fill:#12b5ff" d="M112.287 75.217v50L170.652 75.217zM29.348 75.217l58.365 50V75.217z"/><path style="fill:#fff" d="M51.087 142.174V42.174H100l4.348 100z"/><path style="fill:#e0f8ff" d="M100 42.174h48.913v100H100z"/><path style="fill:#7be3ff" d="m100 125.217 -12.287 -8.696 -33.53 16.304L29.348 157.826h141.304l-24.835 -25 -33.53 -16.304z"/><path style="fill:#487ed2" d="M95.777 78.517 100 67.43l4.348 -6.88 -4.348 -6.88h-4.063l-17.391 45.652 8.126 3.096 5.792 -15.205H100l4.348 -4.348 -4.348 -4.348z"/><path style="fill:#adeeff" d="M29.348 75.217v82.609l58.365 -41.304z"/><path style="fill:#48d9ff" d="M112.287 116.522 170.652 157.826V75.217z"/><path style="fill:#1d54bd" d="M104.063 53.67H100v13.761l4.223 11.086H100v8.696h7.536l5.792 15.205 8.126 -3.096z"/></svg>'
 ></ngx-spinner> -->
