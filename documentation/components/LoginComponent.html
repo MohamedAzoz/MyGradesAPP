@@ -1,0 +1,1123 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>my-grade documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">my-grade documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/Features/Auth/Components/login/login.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>MessageService</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../modules/PrimengModulesModule.html" target="_self" >PrimengModulesModule</a></code>
+                            <code>InputGroupModule</code>
+                            <code>FormsModule</code>
+                            <code>CommonModule</code>
+                            <code>InputGroupAddonModule</code>
+                            <code>ReactiveFormsModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./login.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#loginForm" >loginForm</a>
+                            </li>
+                            <li>
+                                <a href="#passwordMaskBinding" >passwordMaskBinding</a>
+                            </li>
+                            <li>
+                                <a href="#visibility" >visibility</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#submit" >submit</a>
+                            </li>
+                            <li>
+                                <a href="#togglePassword" >togglePassword</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#nationalId" >nationalId</a>
+                                </li>
+                                <li>
+                                    <a href="#password" >password</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, authService_: <a href="../injectables/AuthServiceService.html" target="_self">AuthServiceService</a>, _notifecationsService: <a href="../injectables/NotifecationsService.html" target="_self">NotifecationsService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:94</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService_</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthServiceService.html" target="_self" >AuthServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_notifecationsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotifecationsService.html" target="_self" >NotifecationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="togglePassword"></a>
+                    <span class="name">
+                        <span ><b>togglePassword</b></span>
+                        <a href="#togglePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>togglePassword(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginForm"></a>
+                    <span class="name">
+                        <span ><b>loginForm</b></span>
+                        <a href="#loginForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordMaskBinding"></a>
+                    <span class="name">
+                        <span ><b>passwordMaskBinding</b></span>
+                        <a href="#passwordMaskBinding"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibility"></a>
+                    <span class="name">
+                        <span ><b>visibility</b></span>
+                        <a href="#visibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nationalId"></a>
+                        <span class="name"><b>nationalId</b><a href="#nationalId"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>nationalId()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:121</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="password"></a>
+                        <span class="name"><b>password</b><a href="#password"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>password()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/Features/Auth/Components/login/login.component.ts:124</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { PrimengModulesModule } from &#x27;../../../../Shared/Modules/primeng-modules/primeng-modules.module&#x27;;
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  Validators,
+} from &#x27;@angular/forms&#x27;;
+import { NotifecationsService } from &#x27;../../../../Shared/Services/notifecations-service.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { AuthServiceService } from &#x27;../../Services/auth-service.service&#x27;;
+import { InputGroupModule } from &#x27;primeng/inputgroup&#x27;;
+import { InputGroupAddonModule } from &#x27;primeng/inputgroupaddon&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+
+@Component({
+  selector: &#x27;app-login&#x27;,
+  standalone: true,
+  imports: [
+    PrimengModulesModule,
+    InputGroupModule,
+    FormsModule,
+    CommonModule,
+    InputGroupAddonModule,
+    ReactiveFormsModule,
+  ],
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrl: &#x27;./login.component.scss&#x27;,
+  providers: [MessageService],
+})
+// export class LoginComponent {
+//   nationalId!: FormControl;
+//   password!: FormControl;
+//   loginForm!: FormGroup;
+//   passwordMaskBinding &#x3D; &#x27;&#x27;; // dummy for p-password two-way binding
+
+//   constructor(
+//     private authService_: AuthServiceService,
+//     private _notifecationsService: NotifecationsService,
+//     private router: Router,
+//     // private _userData: UserDataService
+//   ) {
+//     this.initFormControls();
+//     this.initFormGroupe();
+//   }
+
+//   initFormControls(): void {
+//     this.nationalId &#x3D; new FormControl(&#x27;&#x27;, [Validators.required, Validators.pattern(/^\d{14}$/)]);
+//     this.password &#x3D; new FormControl(&#x27;&#x27;, [
+//       Validators.required,
+//       Validators.minLength(6),
+//       Validators.maxLength(10),
+//     ]);
+//   }
+
+//   initFormGroupe(): void {
+//     this.loginForm &#x3D; new FormGroup({
+//       nationalId: this.nationalId,
+//       password: this.password,
+//     });
+//   }
+
+//   submit() {
+//     if (this.loginForm.valid) {
+//       this.siginIn(this.loginForm.value);
+//     } else {
+//       this.loginForm.markAllAsTouched();
+//       Object.keys(this.loginForm.controls).forEach((control) &#x3D;&gt;
+//         this.loginForm.controls[control].markAsDirty()
+//       );
+//     }
+//   }
+
+//   siginIn(data: ILogin): void {
+//     this.authService_.login(data).subscribe({
+//       next: (response) &#x3D;&gt; {
+//         if (response._id) {
+//           this._notifecationsService.showSuccess(&#x27;success&#x27;, &#x27;success login&#x27;);
+//           localStorage.setItem(&#x27;token&#x27;, response._id);
+//         }
+//         this.router.navigate([&#x27;home&#x27;]);
+//       },
+//       error: (err) &#x3D;&gt; {
+//         this._notifecationsService.showError(&#x27;Error&#x27;, err.error.error);
+//       },
+//     });
+//   }
+// }
+export class LoginComponent implements OnInit {
+  visibility: { [key: string]: boolean } &#x3D; {};
+  loginForm!: FormGroup;
+  passwordMaskBinding &#x3D; &#x27;&#x27;; // dummy for p-password two-way binding
+
+  constructor(
+    private fb: FormBuilder,
+    private authService_: AuthServiceService,
+    private _notifecationsService: NotifecationsService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.loginForm &#x3D; this.fb.group({
+      nationalId: [&#x27;&#x27;, [Validators.required, Validators.pattern(/^\d{14}$/)]],
+      password: [&#x27;&#x27;, [Validators.required, Validators.minLength(6)]],
+    });
+  }
+  togglePassword(key: string) {
+    const input &#x3D; document.getElementById(key) as HTMLInputElement;
+    if (!input) return;
+    this.visibility[key] &#x3D; !this.visibility[key];
+    input.type &#x3D; this.visibility[key] ? &#x27;text&#x27; : &#x27;password&#x27;;
+    if (this.visibility[key]) {
+      input.type &#x3D; &#x27;text&#x27;;
+    } else {
+      input.type &#x3D; &#x27;password&#x27;;
+    }
+  }
+
+  get nationalId() {
+    return this.loginForm.get(&#x27;nationalId&#x27;)!;
+  }
+  get password() {
+    return this.loginForm.get(&#x27;password&#x27;)!;
+  }
+
+  submit() {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+    const payload &#x3D; this.loginForm.value;
+    // Call the sign-in method
+    this.authService_.login(payload).subscribe({
+      next: (response) &#x3D;&gt; {
+        if (response.isAuthenticated) {
+          this._notifecationsService.showSuccess(
+            &#x27;نجاح &#x27;,
+            &#x27;تم تسجيل الدخول بنجاح &#x27;
+          );
+          localStorage.setItem(&#x27;token&#x27;, response.token);
+          // for (const role of response.roles) {
+          localStorage.setItem(&#x60;role&#x60;, response.roles[0]);
+          localStorage.setItem(
+            &#x27;tokenExpiry&#x27;,
+            response.expiresOn ? response.expiresOn.toString() : &#x27;&#x27;
+          );
+          // }
+          localStorage.setItem(&#x27;nationalId&#x27;, response.nationalId || &#x27;&#x27;);
+          localStorage.setItem(&#x27;fullName&#x27;, response.fullName || &#x27;&#x27;);
+          localStorage.setItem(&#x27;userId&#x27;, response.userId || &#x27;&#x27;);
+          console.log(response);
+          setTimeout(() &#x3D;&gt; {
+            this.router.navigate([&#x27;/main/home&#x27;]);
+          }, 800);
+        }
+      },
+      error: (err) &#x3D;&gt; {
+        this._notifecationsService.showError(&#x27;خطأ&#x27;, err.error.error);
+      },
+    });
+    console.log(&#x27;submit&#x27;, payload);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;min-h-screen flex items-center justify-center bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 from-slate-50 to-slate-100 py-8&quot;
+&gt;
+  &lt;form
+    [formGroup]&#x3D;&quot;loginForm&quot;
+    (ngSubmit)&#x3D;&quot;submit()&quot;
+    class&#x3D;&quot;w-full max-w-md bg-white dark:bg-gray-900 dark:text-white p-6 sm:p-8 rounded-2xl shadow-lg rtl&quot;
+    dir&#x3D;&quot;rtl&quot;
+    aria-labelledby&#x3D;&quot;loginTitle&quot;
+  &gt;
+    &lt;h1
+      id&#x3D;&quot;loginTitle&quot;
+      class&#x3D;&quot;text-center text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white mb-6&quot;
+    &gt;
+      تسجيل الدخول
+    &lt;/h1&gt;
+
+    &lt;!-- nationalId --&gt;
+    &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+      &lt;label
+        for&#x3D;&quot;nationalId&quot;
+        class&#x3D;&quot;block text-sm font-medium text-slate-700 mb-2 dark:text-white&quot;
+        &gt;الرقم القومي&lt;/label
+      &gt;
+      &lt;p-inputGroup class&#x3D;&quot;w-full&quot;&gt;
+        &lt;p-inputGroupAddon
+          class&#x3D;&quot;bg-blue-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700&quot;
+        &gt;
+          &lt;i class&#x3D;&quot;pi pi-id-card text-slate-600 text-2xl dark:text-gray-400&quot;&gt;&lt;/i&gt;
+        &lt;/p-inputGroupAddon&gt;
+        &lt;input
+          id&#x3D;&quot;nationalId&quot;
+          pInputText
+          formControlName&#x3D;&quot;nationalId&quot;
+          placeholder&#x3D;&quot;أدخل الرقم القومي&quot;
+          class&#x3D;&quot;w-full rounded-r-md p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-indigo-600&quot;
+          aria-describedby&#x3D;&quot;nationalIdError&quot;
+          [ngClass]&#x3D;&quot;{
+            &#x27;bg-green-200 border-green-500 dark:bg-green-900 dark:border-green-700&#x27;:
+              nationalId.valid &amp;&amp; (nationalId.dirty || nationalId.touched),
+            &#x27;bg-red-200 border-red-500 dark:bg-red-900 dark:border-red-700&#x27;:
+              nationalId.invalid &amp;&amp; (nationalId.dirty || nationalId.touched)
+          }&quot;
+        /&gt;
+      &lt;/p-inputGroup&gt;
+
+      &lt;!-- messages --&gt;
+      @if (nationalId.touched || nationalId.dirty) {
+
+      &lt;div class&#x3D;&quot;mt-3&quot;&gt;
+        @if (nationalId.hasError(&#x27;required&#x27;)) {
+        &lt;p-messages
+          [value]&#x3D;&quot;[
+            { severity: &#x27;error&#x27;, summary: &#x27;خطأ&#x27;, detail: &#x27;الرقم القومي مطلوب&#x27; }
+          ]&quot;
+          [enableService]&#x3D;&quot;false&quot;
+          [closable]&#x3D;&quot;false&quot;
+        &gt;&lt;/p-messages&gt;
+        } @if ( nationalId.hasError(&#x27;pattern&#x27;) ) {
+        &lt;p-messages
+          [value]&#x3D;&quot;[
+            {
+              severity: &#x27;error&#x27;,
+              summary: &#x27;خطأ&#x27;,
+              detail: &#x27;صيغة الرقم القومي غير صحيحة&#x27;
+            }
+          ]&quot;
+          [enableService]&#x3D;&quot;false&quot;
+          [closable]&#x3D;&quot;false&quot;
+        &gt;&lt;/p-messages&gt;
+        }
+      &lt;/div&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;!-- password --&gt;
+    &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+      &lt;label
+        for&#x3D;&quot;password&quot;
+        class&#x3D;&quot;block text-sm font-medium text-slate-700 mb-2 dark:text-white&quot;
+        &gt;كلمة السر&lt;/label
+      &gt;
+
+      &lt;p-inputGroup class&#x3D;&quot;w-full&quot;&gt;
+        &lt;p-inputGroupAddon
+          class&#x3D;&quot;bg-blue-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700&quot;
+        &gt;
+          &lt;i class&#x3D;&quot;pi pi-lock text-slate-600 text-2xl dark:text-gray-400&quot;&gt;&lt;/i&gt;
+        &lt;/p-inputGroupAddon&gt;
+        &lt;input
+          pPassword
+          type&#x3D;&quot;password&quot;
+          id&#x3D;&quot;password&quot;
+          formControlName&#x3D;&quot;password&quot;
+          placeholder&#x3D;&quot;أدخل كلمة المرور&quot;
+          class&#x3D;&quot;w-9/12 p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-indigo-600&quot;
+          aria-describedby&#x3D;&quot;passwordError&quot;
+          [ngClass]&#x3D;&quot;{
+            &#x27;bg-green-200 border-green-500 dark:bg-green-900 dark:border-green-700&#x27;:
+              password.valid &amp;&amp; (password.dirty || password.touched),
+            &#x27;bg-red-200 border-red-500 dark:bg-red-900 dark:border-red-700&#x27;:
+              password.invalid &amp;&amp; (password.dirty || password.touched)
+          }&quot;
+        /&gt;
+        &lt;p-inputGroupAddon
+          class&#x3D;&quot;bg-gray-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700&quot;
+        &gt;
+          &lt;i
+            (click)&#x3D;&quot;togglePassword(&#x27;password&#x27;)&quot;
+            [hidden]&#x3D;&quot;visibility[&#x27;password&#x27;]&quot;
+            class&#x3D;&quot;pi pi-eye text-slate-600 text-2xl dark:text-gray-400&quot;
+          &gt;&lt;/i&gt;
+          &lt;i
+            (click)&#x3D;&quot;togglePassword(&#x27;password&#x27;)&quot;
+            [hidden]&#x3D;&quot;!visibility[&#x27;password&#x27;]&quot;
+            class&#x3D;&quot;pi pi-eye-slash text-slate-600 text-2xl dark:text-gray-400&quot;
+          &gt;&lt;/i&gt;
+        &lt;/p-inputGroupAddon&gt;
+      &lt;/p-inputGroup&gt;
+
+      @if (password.touched || password.dirty) {
+
+      &lt;div class&#x3D;&quot;mt-3&quot;&gt;
+        @if (password.hasError(&#x27;required&#x27;)) {
+        &lt;p-messages
+          [value]&#x3D;&quot;[
+            { severity: &#x27;error&#x27;, summary: &#x27;خطأ&#x27;, detail: &#x27;كلمة السر مطلوبة&#x27; }
+          ]&quot;
+          [enableService]&#x3D;&quot;false&quot;
+          [closable]&#x3D;&quot;false&quot;
+        &gt;&lt;/p-messages&gt;
+        } @if (password.hasError(&#x27;maxlength&#x27;)) {
+        &lt;p-messages
+          [value]&#x3D;&quot;[
+            {
+              severity: &#x27;error&#x27;,
+              summary: &#x27;خطأ&#x27;,
+              detail: &#x27;يجب ألا تقل كلمة السر عن 6 أحرف&#x27;
+            }
+          ]&quot;
+          [enableService]&#x3D;&quot;false&quot;
+          [closable]&#x3D;&quot;false&quot;
+        &gt;&lt;/p-messages&gt;
+        }
+      &lt;/div&gt;
+      }
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;flex justify-center mt-6&quot;&gt;
+      &lt;p-button
+        type&#x3D;&quot;submit&quot;
+        label&#x3D;&quot;تسجيل الدخول&quot;
+        [disabled]&#x3D;&quot;loginForm.invalid&quot;
+        class&#x3D;&quot;w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-700 dark:to-blue-700 text-white dark:text-gray-300 font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition&quot;
+      &gt;&lt;/p-button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  class="min-h-screen flex items-center justify-center bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 from-slate-50 to-slate-100 py-8">  <form    [formGroup]="loginForm"    (ngSubmit)="submit()"    class="w-full max-w-md bg-white dark:bg-gray-900 dark:text-white p-6 sm:p-8 rounded-2xl shadow-lg rtl"    dir="rtl"    aria-labelledby="loginTitle"  >    <h1      id="loginTitle"      class="text-center text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white mb-6"    >      تسجيل الدخول    </h1>    <!-- nationalId -->    <div class="mb-3">      <label        for="nationalId"        class="block text-sm font-medium text-slate-700 mb-2 dark:text-white"        >الرقم القومي</label      >      <p-inputGroup class="w-full">        <p-inputGroupAddon          class="bg-blue-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700"        >          <i class="pi pi-id-card text-slate-600 text-2xl dark:text-gray-400"></i>        </p-inputGroupAddon>        <input          id="nationalId"          pInputText          formControlName="nationalId"          placeholder="أدخل الرقم القومي"          class="w-full rounded-r-md p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-indigo-600"          aria-describedby="nationalIdError"          [ngClass]="{            \'bg-green-200 border-green-500 dark:bg-green-900 dark:border-green-700\':              nationalId.valid && (nationalId.dirty || nationalId.touched),            \'bg-red-200 border-red-500 dark:bg-red-900 dark:border-red-700\':              nationalId.invalid && (nationalId.dirty || nationalId.touched)          }"        />      </p-inputGroup>      <!-- messages -->      @if (nationalId.touched || nationalId.dirty) {      <div class="mt-3">        @if (nationalId.hasError(\'required\')) {        <p-messages          [value]="[            { severity: \'error\', summary: \'خطأ\', detail: \'الرقم القومي مطلوب\' }          ]"          [enableService]="false"          [closable]="false"        ></p-messages>        } @if ( nationalId.hasError(\'pattern\') ) {        <p-messages          [value]="[            {              severity: \'error\',              summary: \'خطأ\',              detail: \'صيغة الرقم القومي غير صحيحة\'            }          ]"          [enableService]="false"          [closable]="false"        ></p-messages>        }      </div>      }    </div>    <!-- password -->    <div class="mb-4">      <label        for="password"        class="block text-sm font-medium text-slate-700 mb-2 dark:text-white"        >كلمة السر</label      >      <p-inputGroup class="w-full">        <p-inputGroupAddon          class="bg-blue-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700"        >          <i class="pi pi-lock text-slate-600 text-2xl dark:text-gray-400"></i>        </p-inputGroupAddon>        <input          pPassword          type="password"          id="password"          formControlName="password"          placeholder="أدخل كلمة المرور"          class="w-9/12 p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-indigo-600"          aria-describedby="passwordError"          [ngClass]="{            \'bg-green-200 border-green-500 dark:bg-green-900 dark:border-green-700\':              password.valid && (password.dirty || password.touched),            \'bg-red-200 border-red-500 dark:bg-red-900 dark:border-red-700\':              password.invalid && (password.dirty || password.touched)          }"        />        <p-inputGroupAddon          class="bg-gray-50 border border-blue-200 rounded-l-md p-2 dark:bg-gray-800 dark:border-gray-700"        >          <i            (click)="togglePassword(\'password\')"            [hidden]="visibility[\'password\']"            class="pi pi-eye text-slate-600 text-2xl dark:text-gray-400"          ></i>          <i            (click)="togglePassword(\'password\')"            [hidden]="!visibility[\'password\']"            class="pi pi-eye-slash text-slate-600 text-2xl dark:text-gray-400"          ></i>        </p-inputGroupAddon>      </p-inputGroup>      @if (password.touched || password.dirty) {      <div class="mt-3">        @if (password.hasError(\'required\')) {        <p-messages          [value]="[            { severity: \'error\', summary: \'خطأ\', detail: \'كلمة السر مطلوبة\' }          ]"          [enableService]="false"          [closable]="false"        ></p-messages>        } @if (password.hasError(\'maxlength\')) {        <p-messages          [value]="[            {              severity: \'error\',              summary: \'خطأ\',              detail: \'يجب ألا تقل كلمة السر عن 6 أحرف\'            }          ]"          [enableService]="false"          [closable]="false"        ></p-messages>        }      </div>      }    </div>    <div class="flex justify-center mt-6">      <p-button        type="submit"        label="تسجيل الدخول"        [disabled]="loginForm.invalid"        class="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-700 dark:to-blue-700 text-white dark:text-gray-300 font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition"      ></p-button>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AddAssistantsComponent', 'selector': 'app-add-assistants'},{'name': 'AddDoctorsComponent', 'selector': 'app-add-doctors'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImportgradesComponent', 'selector': 'app-importgrades'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MyGradesComponent', 'selector': 'app-my-grades'},{'name': 'MySubjectsComponent', 'selector': 'app-my-subjects'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'StudentsGradesComponent', 'selector': 'app-students-grades'},{'name': 'SubjectInfoComponent', 'selector': 'app-subject-info'},{'name': 'TemplateGradesComponent', 'selector': 'app-template-grades'},{'name': 'TemplateStudentsComponent', 'selector': 'app-template-students'},{'name': 'TemplateStudentsGradesComponent', 'selector': 'app-template-students-grades'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

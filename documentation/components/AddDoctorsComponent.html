@@ -1,0 +1,1115 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>my-grade documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">my-grade documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AddDoctorsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-add-doctors</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../modules/PrimengModulesModule.html" target="_self" >PrimengModulesModule</a></code>
+                            <code>InputGroupAddonModule</code>
+                            <code>InputGroupModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./add-doctors.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./add-doctors.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#defaultPassword" >defaultPassword</a>
+                            </li>
+                            <li>
+                                <a href="#environment" >environment</a>
+                            </li>
+                            <li>
+                                <a href="#isSubmitDisabled" >isSubmitDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#visibility" >visibility</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#customUploadHandler" >customUploadHandler</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onError" >onError</a>
+                            </li>
+                            <li>
+                                <a href="#onUpload" >onUpload</a>
+                            </li>
+                            <li>
+                                <a href="#togglePassword" >togglePassword</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(notificationsService: <a href="../injectables/NotifecationsService.html" target="_self">NotifecationsService</a>, http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>notificationsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotifecationsService.html" target="_self" >NotifecationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customUploadHandler"></a>
+                    <span class="name">
+                        <span ><b>customUploadHandler</b></span>
+                        <a href="#customUploadHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>customUploadHandler(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onError"></a>
+                    <span class="name">
+                        <span ><b>onError</b></span>
+                        <a href="#onError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onError(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onUpload"></a>
+                    <span class="name">
+                        <span ><b>onUpload</b></span>
+                        <a href="#onUpload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onUpload(event: FileUploadEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>FileUploadEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="togglePassword"></a>
+                    <span class="name">
+                        <span ><b>togglePassword</b></span>
+                        <a href="#togglePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>togglePassword(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultPassword"></a>
+                    <span class="name">
+                        <span ><b>defaultPassword</b></span>
+                        <a href="#defaultPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;MyG2026&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSubmitDisabled"></a>
+                    <span class="name">
+                        <span ><b>isSubmitDisabled</b></span>
+                        <a href="#isSubmitDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibility"></a>
+                    <span class="name">
+                        <span ><b>visibility</b></span>
+                        <a href="#visibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/Features/Users/Components/Doctor/add-doctors/add-doctors.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+import { environment } from &#x27;../../../../../../environments/environment.development&#x27;;
+
+import { PrimengModulesModule } from &#x27;../../../../../Shared/Modules/primeng-modules/primeng-modules.module&#x27;;
+
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { NotifecationsService } from &#x27;../../../../../Shared/Services/notifecations-service.service&#x27;;
+import { FileUploadEvent } from &#x27;primeng/fileupload&#x27;;
+import { InputGroupModule } from &#x27;primeng/inputgroup&#x27;;
+import { InputGroupAddonModule } from &#x27;primeng/inputgroupaddon&#x27;;
+@Component({
+  selector: &#x27;app-add-doctors&#x27;,
+  standalone: true,
+  imports: [PrimengModulesModule, InputGroupAddonModule, InputGroupModule],
+  templateUrl: &#x27;./add-doctors.component.html&#x27;,
+  styleUrl: &#x27;./add-doctors.component.scss&#x27;,
+})
+export class AddDoctorsComponent {
+  visibility: { [key: string]: boolean } &#x3D; {};
+  defaultPassword: string &#x3D; &#x27;MyG2026&#x27;;
+  isSubmitDisabled &#x3D; true;
+  environment: string &#x3D; &#x27;&#x27;;
+  constructor(
+    private notificationsService: NotifecationsService,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit(): void {
+    //  this.environment &#x3D; &#x60;${environment.apiUrl}/Import/students/import&#x60;;
+  }
+  togglePassword(key: string) {
+    const input &#x3D; document.getElementById(key) as HTMLInputElement;
+    if (!input) return;
+    this.visibility[key] &#x3D; !this.visibility[key];
+    input.type &#x3D; this.visibility[key] ? &#x27;text&#x27; : &#x27;password&#x27;;
+    if (this.visibility[key]) {
+      input.type &#x3D; &#x27;text&#x27;;
+    } else {
+      input.type &#x3D; &#x27;password&#x27;;
+    }
+  }
+
+  customUploadHandler(event: any) {
+    const files: File[] &#x3D; event.files;
+    if (!files || files.length &#x3D;&#x3D;&#x3D; 0) return;
+
+    const fd &#x3D; new FormData();
+    fd.append(&#x27;File&#x27;, files[0]); // اسم الحقل يجب يطابق DTO
+    fd.append(&#x27;DefaultPassword&#x27;, this.defaultPassword || &#x27;&#x27;);
+
+    this.http
+      .post(&#x60;${environment.apiUrl}/Import/doctors/import&#x60;, fd, {
+        responseType: &#x27;text&#x27;,
+      })
+      .subscribe({
+        next: (res: string) &#x3D;&gt; {
+          this.notificationsService.showSuccess(&#x27;نجاح&#x27;, res);
+          event.options.clear(); // إن وُجدَت
+        },
+        error: (err) &#x3D;&gt; {
+          console.error(&#x27;Upload error&#x27;, err);
+          // err.status و err.error (string) متاحان
+          this.notificationsService.showError(&#x27;خطأ&#x27;, err?.error || &#x27;فشل الرفع&#x27;);
+        },
+      });
+  }
+
+  onUpload(event: FileUploadEvent) {
+    this.notificationsService.showSuccess(
+      &#x27;نجاح&#x27;,
+      &#x27;تم رفع الملف بنجاح مع &#x27; + event.files.length + &#x27; ملفات&#x27;
+    );
+    this.isSubmitDisabled &#x3D; false;
+  }
+
+  onError(event: any) {
+    let errorMessage &#x3D; &#x27;حدث خطأ غير معروف أثناء رفع الملف.&#x27;;
+    if (event &amp;&amp; event.xhr) {
+      if (event.xhr.status &#x3D;&#x3D;&#x3D; 400) {
+        try {
+          const response &#x3D; JSON.parse(event.xhr.response);
+          errorMessage &#x3D;
+            response.Message ||
+            response.message ||
+            response.errors ||
+            event.xhr.response;
+          if (
+            typeof errorMessage &#x3D;&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp;
+            !Array.isArray(errorMessage)
+          ) {
+            errorMessage &#x3D; Object.values(errorMessage).flat().join(&#x27; | &#x27;);
+          }
+        } catch (e) {
+          errorMessage &#x3D; event.xhr.response || errorMessage;
+        }
+      }
+      this.notificationsService.showError(
+        &#x60;فشل (Status: ${event.xhr.status})&#x60;,
+        errorMessage
+      );
+    }
+
+    console.error(&#x27;Upload Error Details:&#x27;, event);
+    console.error(&#x27;API Response:&#x27;, errorMessage);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-10&quot;
+  dir&#x3D;&quot;rtl&quot;
+&gt;
+  &lt;div
+    class&#x3D;&quot;w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 sm:p-8 flex flex-col gap-6&quot;
+  &gt;
+    &lt;!-- Icon --&gt;
+    &lt;div class&#x3D;&quot;flex justify-center&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-100 text-blue-600&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;pi pi-users text-3xl&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Title --&gt;
+    &lt;div class&#x3D;&quot;text-center&quot;&gt;
+      &lt;h2 class&#x3D;&quot;text-2xl sm:text-3xl font-extrabold text-gray-800&quot;&gt;
+        رفع بيانات الدكاترة
+      &lt;/h2&gt;
+      &lt;p class&#x3D;&quot;text-gray-500 mt-2 text-sm&quot;&gt;
+        يرجى رفع ملف Excel يحتوي على بيانات الدكاترة
+      &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Default Password --&gt;
+    &lt;div class&#x3D;&quot;w-full&quot;&gt;
+      &lt;label
+        for&#x3D;&quot;defaultPassword&quot;
+        class&#x3D;&quot;block mb-2 text-sm font-semibold text-gray-700&quot;
+      &gt;
+        كلمة المرور الافتراضية
+      &lt;/label&gt;
+      &lt;p-inputGroup class&#x3D;&quot;w-full&quot;&gt;
+        &lt;p-inputGroupAddon
+          class&#x3D;&quot;bg-blue-50 border border-blue-200 rounded-l-md p-2&quot;
+        &gt;
+          &lt;i class&#x3D;&quot;pi pi-lock text-slate-600 text-2xl&quot;&gt;&lt;/i&gt;
+        &lt;/p-inputGroupAddon&gt;
+        &lt;input
+          pPassword
+          type&#x3D;&quot;password&quot;
+          id&#x3D;&quot;defaultPassword&quot;
+          [(ngModel)]&#x3D;&quot;defaultPassword&quot;
+          name&#x3D;&quot;defaultPassword&quot; 
+          placeholder&#x3D;&quot;أدخل كلمة المرور الافتراضية&quot;
+          class&#x3D;&quot;w-9/12 p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base&quot;
+        /&gt;
+        &lt;p-inputGroupAddon
+          class&#x3D;&quot;bg-gray-50 border border-blue-200 rounded-l-md p-2 cursor-pointer&quot;
+        &gt;
+          &lt;i
+            (click)&#x3D;&quot;togglePassword(&#x27;defaultPassword&#x27;)&quot;
+            [hidden]&#x3D;&quot;visibility[&#x27;defaultPassword&#x27;]&quot;
+            class&#x3D;&quot;pi pi-eye text-slate-600 text-2xl&quot;
+          &gt;&lt;/i&gt;
+          &lt;i
+            (click)&#x3D;&quot;togglePassword(&#x27;defaultPassword&#x27;)&quot;
+            [hidden]&#x3D;&quot;!visibility[&#x27;defaultPassword&#x27;]&quot;
+            class&#x3D;&quot;pi pi-eye-slash text-slate-600 text-2xl&quot;
+          &gt;&lt;/i&gt;
+        &lt;/p-inputGroupAddon&gt;
+      &lt;/p-inputGroup&gt;
+    &lt;/div&gt;
+ 
+
+    &lt;!-- File Upload --&gt;
+    &lt;div
+      class&#x3D;&quot;w-full border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center font-semibold text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-all duration-300 cursor-pointer&quot;
+    &gt;
+      &lt;p-fileUpload
+        #uploader
+        mode&#x3D;&quot;basic&quot;
+        name&#x3D;&quot;file&quot;
+        [customUpload]&#x3D;&quot;true&quot;
+        (uploadHandler)&#x3D;&quot;customUploadHandler($event)&quot;
+        [auto]&#x3D;&quot;false&quot;
+        chooseLabel&#x3D;&quot;اختيار ملف&quot;
+        chooseIcon&#x3D;&quot;pi pi-upload&quot;
+        [showUploadButton]&#x3D;&quot;false&quot;
+        [showCancelButton]&#x3D;&quot;false&quot;
+        accept&#x3D;&quot;.xlsx, .xls&quot;
+        maxFileSize&#x3D;&quot;1000000&quot;
+        (onUpload)&#x3D;&quot;onUpload($event)&quot;
+        (onError)&#x3D;&quot;onError($event)&quot;
+        class&#x3D;&quot;w-full&quot;
+      &gt;
+      &lt;/p-fileUpload&gt;
+
+      &lt;p class&#x3D;&quot;mt-2 text-xs text-gray-400 text-center&quot;&gt;
+        الصيغ المدعومة: XLSX, XLS — الحد الأقصى 1MB
+      &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Submit Button --&gt;
+    &lt;p-button
+      label&#x3D;&quot;رفع الملف&quot;
+      icon&#x3D;&quot;pi pi-cloud-upload&quot;
+      (onClick)&#x3D;&quot;uploader.upload()&quot;
+      class&#x3D;&quot;w-full flex justify-center items-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-lg font-bold transition&quot;
+      styleClass&#x3D;&quot;w-40&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  class="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-10"  dir="rtl">  <div    class="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 sm:p-8 flex flex-col gap-6"  >    <!-- Icon -->    <div class="flex justify-center">      <div        class="w-16 h-16 flex items-center justify-center rounded-2xl bg-blue-100 text-blue-600"      >        <i class="pi pi-users text-3xl"></i>      </div>    </div>    <!-- Title -->    <div class="text-center">      <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-800">        رفع بيانات الدكاترة      </h2>      <p class="text-gray-500 mt-2 text-sm">        يرجى رفع ملف Excel يحتوي على بيانات الدكاترة      </p>    </div>    <!-- Default Password -->    <div class="w-full">      <label        for="defaultPassword"        class="block mb-2 text-sm font-semibold text-gray-700"      >        كلمة المرور الافتراضية      </label>      <p-inputGroup class="w-full">        <p-inputGroupAddon          class="bg-blue-50 border border-blue-200 rounded-l-md p-2"        >          <i class="pi pi-lock text-slate-600 text-2xl"></i>        </p-inputGroupAddon>        <input          pPassword          type="password"          id="defaultPassword"          [(ngModel)]="defaultPassword"          name="defaultPassword"           placeholder="أدخل كلمة المرور الافتراضية"          class="w-9/12 p-3 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 text-base"        />        <p-inputGroupAddon          class="bg-gray-50 border border-blue-200 rounded-l-md p-2 cursor-pointer"        >          <i            (click)="togglePassword(\'defaultPassword\')"            [hidden]="visibility[\'defaultPassword\']"            class="pi pi-eye text-slate-600 text-2xl"          ></i>          <i            (click)="togglePassword(\'defaultPassword\')"            [hidden]="!visibility[\'defaultPassword\']"            class="pi pi-eye-slash text-slate-600 text-2xl"          ></i>        </p-inputGroupAddon>      </p-inputGroup>    </div>     <!-- File Upload -->    <div      class="w-full border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center font-semibold text-gray-600 hover:border-blue-500 hover:text-blue-600 transition-all duration-300 cursor-pointer"    >      <p-fileUpload        #uploader        mode="basic"        name="file"        [customUpload]="true"        (uploadHandler)="customUploadHandler($event)"        [auto]="false"        chooseLabel="اختيار ملف"        chooseIcon="pi pi-upload"        [showUploadButton]="false"        [showCancelButton]="false"        accept=".xlsx, .xls"        maxFileSize="1000000"        (onUpload)="onUpload($event)"        (onError)="onError($event)"        class="w-full"      >      </p-fileUpload>      <p class="mt-2 text-xs text-gray-400 text-center">        الصيغ المدعومة: XLSX, XLS — الحد الأقصى 1MB      </p>    </div>    <!-- Submit Button -->    <p-button      label="رفع الملف"      icon="pi pi-cloud-upload"      (onClick)="uploader.upload()"      class="w-full flex justify-center items-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl text-lg font-bold transition"      styleClass="w-40"    />  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddAssistantsComponent', 'selector': 'app-add-assistants'},{'name': 'AddDoctorsComponent', 'selector': 'app-add-doctors'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImportgradesComponent', 'selector': 'app-importgrades'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MyGradesComponent', 'selector': 'app-my-grades'},{'name': 'MySubjectsComponent', 'selector': 'app-my-subjects'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'StudentsGradesComponent', 'selector': 'app-students-grades'},{'name': 'SubjectInfoComponent', 'selector': 'app-subject-info'},{'name': 'TemplateGradesComponent', 'selector': 'app-template-grades'},{'name': 'TemplateStudentsComponent', 'selector': 'app-template-students'},{'name': 'TemplateStudentsGradesComponent', 'selector': 'app-template-students-grades'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AddDoctorsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AddDoctorsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

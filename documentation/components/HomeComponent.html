@@ -1,0 +1,403 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>my-grade documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">my-grade documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HomeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/Shared/Components/home/home.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./home.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./home.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-home&#x27;,
+  standalone: true,
+  imports: [],
+  templateUrl: &#x27;./home.component.html&#x27;,
+  styleUrl: &#x27;./home.component.scss&#x27;,
+})
+export class HomeComponent {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center px-4&quot;
+  dir&#x3D;&quot;rtl&quot;
+&gt;
+  &lt;div
+    class&#x3D;&quot;max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-14&quot;
+  &gt;
+    &lt;!-- Text Content --&gt;
+    &lt;div class&#x3D;&quot;flex flex-col gap-6 text-center md:text-right&quot;&gt;
+      &lt;h1
+        class&#x3D;&quot;text-3xl md:text-4xl font-extrabold text-slate-800 dark:text-slate-200 leading-snug&quot;
+      &gt;
+        مرحبًا بكم في نظام  
+        &lt;span class&#x3D;&quot;text-blue-600 dark:text-blue-400&quot;&gt;إدارة الدرجات الأكاديمية&lt;/span&gt;
+      &lt;/h1&gt;
+
+      &lt;p class&#x3D;&quot;text-lg text-gray-700 leading-relaxed dark:text-gray-300&quot;&gt;
+        كلية الحاسبات والمعلومات ترحب بكم في نظام تسجيل ومتابعة الدرجات،
+        المصمم لتقديم تجربة تعليمية رقمية سهلة، دقيقة، وآمنة لكل من
+        الطلاب، المعيدين، وأعضاء هيئة التدريس.
+      &lt;/p&gt;
+
+      &lt;!-- &lt;div
+        class&#x3D;&quot;flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4&quot;
+      &gt;
+        &lt;a
+          routerLink&#x3D;&quot;/my-subjects&quot;
+          class&#x3D;&quot;px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg&quot;
+        &gt;
+          استعرض المواد
+        &lt;/a&gt;
+
+        &lt;a
+          routerLink&#x3D;&quot;/profile&quot;
+          class&#x3D;&quot;px-6 py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold text-lg hover:bg-blue-50 transition-all duration-300&quot;
+        &gt;
+          الملف الشخصي
+        &lt;/a&gt;
+      &lt;/div&gt; --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Image Section --&gt;
+    &lt;div class&#x3D;&quot;flex justify-center&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;relative w-72 md:w-96 aspect-square rounded-2xl overflow-hidden shadow-xl group&quot;
+      &gt;
+        &lt;img
+          src&#x3D;&quot;assets/23.avif&quot;
+          alt&#x3D;&quot;Academic System Illustration&quot;
+          class&#x3D;&quot;w-full h-full object-fill transition-transform duration-500 group-hover:scale-110&quot;
+        /&gt;
+
+        &lt;!-- Overlay --&gt;
+        &lt;div
+          class&#x3D;&quot;absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500&quot;
+        &gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div  class="min-h-screen w-full bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center px-4"  dir="rtl">  <div    class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-14"  >    <!-- Text Content -->    <div class="flex flex-col gap-6 text-center md:text-right">      <h1        class="text-3xl md:text-4xl font-extrabold text-slate-800 dark:text-slate-200 leading-snug"      >        مرحبًا بكم في نظام          <span class="text-blue-600 dark:text-blue-400">إدارة الدرجات الأكاديمية</span>      </h1>      <p class="text-lg text-gray-700 leading-relaxed dark:text-gray-300">        كلية الحاسبات والمعلومات ترحب بكم في نظام تسجيل ومتابعة الدرجات،        المصمم لتقديم تجربة تعليمية رقمية سهلة، دقيقة، وآمنة لكل من        الطلاب، المعيدين، وأعضاء هيئة التدريس.      </p>      <!-- <div        class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4"      >        <a          routerLink="/my-subjects"          class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"        >          استعرض المواد        </a>        <a          routerLink="/profile"          class="px-6 py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold text-lg hover:bg-blue-50 transition-all duration-300"        >          الملف الشخصي        </a>      </div> -->    </div>    <!-- Image Section -->    <div class="flex justify-center">      <div        class="relative w-72 md:w-96 aspect-square rounded-2xl overflow-hidden shadow-xl group"      >        <img          src="assets/23.avif"          alt="Academic System Illustration"          class="w-full h-full object-fill transition-transform duration-500 group-hover:scale-110"        />        <!-- Overlay -->        <div          class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"        ></div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddAssistantsComponent', 'selector': 'app-add-assistants'},{'name': 'AddDoctorsComponent', 'selector': 'app-add-doctors'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImportgradesComponent', 'selector': 'app-importgrades'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'MyGradesComponent', 'selector': 'app-my-grades'},{'name': 'MySubjectsComponent', 'selector': 'app-my-subjects'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'StudentsGradesComponent', 'selector': 'app-students-grades'},{'name': 'SubjectInfoComponent', 'selector': 'app-subject-info'},{'name': 'TemplateGradesComponent', 'selector': 'app-template-grades'},{'name': 'TemplateStudentsComponent', 'selector': 'app-template-students'},{'name': 'TemplateStudentsGradesComponent', 'selector': 'app-template-students-grades'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
