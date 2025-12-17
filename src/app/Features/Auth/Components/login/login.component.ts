@@ -12,8 +12,6 @@ import { AuthServiceService } from '../../Services/auth-service.service';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MessageService } from 'primeng/api';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -22,72 +20,12 @@ import { CommonModule } from '@angular/common';
     PrimengModulesModule,
     InputGroupModule,
     FormsModule,
-    CommonModule,
     InputGroupAddonModule,
     ReactiveFormsModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  providers: [MessageService],
 })
-// export class LoginComponent {
-//   nationalId!: FormControl;
-//   password!: FormControl;
-//   loginForm!: FormGroup;
-//   passwordMaskBinding = ''; // dummy for p-password two-way binding
-
-//   constructor(
-//     private authService_: AuthServiceService,
-//     private _notifecationsService: NotifecationsService,
-//     private router: Router,
-//     // private _userData: UserDataService
-//   ) {
-//     this.initFormControls();
-//     this.initFormGroupe();
-//   }
-
-//   initFormControls(): void {
-//     this.nationalId = new FormControl('', [Validators.required, Validators.pattern(/^\d{14}$/)]);
-//     this.password = new FormControl('', [
-//       Validators.required,
-//       Validators.minLength(6),
-//       Validators.maxLength(10),
-//     ]);
-//   }
-
-//   initFormGroupe(): void {
-//     this.loginForm = new FormGroup({
-//       nationalId: this.nationalId,
-//       password: this.password,
-//     });
-//   }
-
-//   submit() {
-//     if (this.loginForm.valid) {
-//       this.siginIn(this.loginForm.value);
-//     } else {
-//       this.loginForm.markAllAsTouched();
-//       Object.keys(this.loginForm.controls).forEach((control) =>
-//         this.loginForm.controls[control].markAsDirty()
-//       );
-//     }
-//   }
-
-//   siginIn(data: ILogin): void {
-//     this.authService_.login(data).subscribe({
-//       next: (response) => {
-//         if (response._id) {
-//           this._notifecationsService.showSuccess('success', 'success login');
-//           localStorage.setItem('token', response._id);
-//         }
-//         this.router.navigate(['home']);
-//       },
-//       error: (err) => {
-//         this._notifecationsService.showError('Error', err.error.error);
-//       },
-//     });
-//   }
-// }
 export class LoginComponent implements OnInit {
   visibility: { [key: string]: boolean } = {};
   loginForm!: FormGroup;
