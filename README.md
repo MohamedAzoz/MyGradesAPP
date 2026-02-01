@@ -1,27 +1,194 @@
-# MyGrade
+# MyGrades App 🎓
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+<div align="center">
 
-## Development server
+![Angular](https://img.shields.io/badge/Angular-17.3-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.4-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![PrimeNG](https://img.shields.io/badge/PrimeNG-17.18-DD0031?style=for-the-badge&logo=primeng&logoColor=white)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**تطبيق ويب لإدارة درجات الطلاب - واجهة المستخدم**
 
-## Code scaffolding
+[العرض المباشر](https://mygradesapp.netlify.app) • [Backend API](https://github.com/MohamedAzoz/MyGrades)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+</div>
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📝 وصف المشروع
 
-## Running unit tests
+**MyGrades App** هو تطبيق Angular حديث يوفر واجهة مستخدم سهلة وتفاعلية لنظام إدارة درجات الطلاب. يدعم التطبيق أنواع مختلفة من المستخدمين (طلاب، دكاترة، معيدين، مدراء) مع صلاحيات مخصصة لكل نوع.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ✨ المميزات الرئيسية
 
-## Running end-to-end tests
+### 👨‍🎓 للطلاب
+- 📊 عرض الدرجات الخاصة بالمواد
+- 📚 عرض المواد الدراسية المسجلة
+- 👤 الملف الشخصي وتغيير كلمة المرور
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 👨‍🏫 للدكاترة والمعيدين
+- 📋 إدارة المواد الدراسية
+- 📝 إضافة وتعديل درجات الطلاب
+- 📤 استيراد الدرجات من ملفات Excel
+- 📄 تصدير قوالب الطلاب والدرجات
 
-## Further help
+### 👨‍💼 للمدراء (Admin)
+- ➕ إضافة الدكاترة
+- ➕ إضافة المعيدين
+- ➕ إضافة الطلاب
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🏗️ هيكل المشروع
+
+```
+src/
+├── app/
+│   ├── Core/                    # الخدمات الأساسية والـ Guards
+│   │   └── Guards/              # حراس المسارات
+│   │       ├── auth.guard.ts
+│   │       ├── admin.guard.ts
+│   │       ├── student.guard.ts
+│   │       ├── doctor.guard.ts
+│   │       ├── assistant.guard.ts
+│   │       └── guest.guard.ts
+│   │
+│   ├── Features/                # الوحدات الرئيسية
+│   │   ├── Auth/               # المصادقة وتسجيل الدخول
+│   │   │   └── Components/
+│   │   │       ├── login/
+│   │   │       └── change-password/
+│   │   │
+│   │   ├── Users/              # إدارة المستخدمين
+│   │   │   └── Components/
+│   │   │       ├── Student/
+│   │   │       ├── Doctor/
+│   │   │       └── Assistant/
+│   │   │
+│   │   ├── Subjects/           # المواد الدراسية
+│   │   │   ├── my-subjects/
+│   │   │   └── subject-info/
+│   │   │
+│   │   ├── Grades/             # الدرجات
+│   │   │   └── Components/
+│   │   │       ├── my-grades/
+│   │   │       ├── students-grades/
+│   │   │       └── importgrades/
+│   │   │
+│   │   └── ExportTemplates/    # تصدير القوالب
+│   │       └── components/
+│   │           ├── template-students/
+│   │           ├── template-grades/
+│   │           └── template-students-grades/
+│   │
+│   └── Shared/                 # المكونات المشتركة
+│       └── Components/
+│           ├── main/
+│           ├── home/
+│           └── not-found/
+│
+├── assets/                     # الصور والملفات الثابتة
+├── environments/               # إعدادات البيئات
+└── styles.scss                 # الأنماط العامة
+```
+
+## 🛠️ التقنيات المستخدمة
+
+| التقنية | الإصدار | الوصف |
+|---------|---------|-------|
+| **Angular** | 17.3 | إطار العمل الرئيسي |
+| **TypeScript** | 5.4 | لغة البرمجة |
+| **TailwindCSS** | 3.4 | إطار CSS للتصميم |
+| **PrimeNG** | 17.18 | مكتبة مكونات UI |
+| **PrimeIcons** | 7.0 | أيقونات |
+| **RxJS** | 7.8 | البرمجة التفاعلية |
+| **jsPDF** | 3.0 | إنشاء ملفات PDF |
+| **html2canvas** | 1.4 | تحويل HTML إلى صور |
+| **ngx-spinner** | 17.0 | مؤشرات التحميل |
+
+## 🚀 البدء السريع
+
+### المتطلبات
+- Node.js (الإصدار 18 أو أحدث)
+- npm أو yarn
+- Angular CLI 17.3+
+
+### التثبيت
+
+1. **استنساخ المشروع**
+```bash
+git clone https://github.com/MohamedAzoz/MyGradesAPP.git
+cd MyGradesAPP
+```
+
+2. **تثبيت الحزم**
+```bash
+npm install
+```
+
+3. **تشغيل خادم التطوير**
+```bash
+npm start
+# أو
+ng serve
+```
+
+4. **فتح التطبيق**
+افتح المتصفح على: `http://localhost:4200`
+
+## 📦 أوامر البناء
+
+| الأمر | الوصف |
+|-------|-------|
+| `npm start` | تشغيل خادم التطوير |
+| `npm run build` | بناء المشروع للإنتاج |
+| `npm run watch` | بناء المشروع مع المراقبة |
+| `npm test` | تشغيل اختبارات الوحدة |
+| `npm run compodoc:build` | إنشاء التوثيق |
+| `npm run compodoc:build-and-serve` | إنشاء وعرض التوثيق |
+
+## 🔐 نظام الصلاحيات
+
+| الدور | الصلاحيات |
+|------|----------|
+| **Guest** | صفحة تسجيل الدخول فقط |
+| **Student** | عرض الدرجات، الملف الشخصي، المواد |
+| **Assistant** | إدارة الدرجات، استيراد/تصدير البيانات |
+| **Doctor** | عرض المواد والدرجات |
+| **Admin** | إضافة المستخدمين (طلاب، دكاترة، معيدين) |
+
+## 🌐 النشر (Deployment)
+
+التطبيق مُعد للنشر على **Netlify**:
+
+```toml
+# netlify.toml
+[build]
+  publish = "dist/my-grade/browser"
+  command = "ng build"
+```
+
+## 🔗 الروابط
+
+- 🌍 **العرض المباشر**: [https://mygradesapp.netlify.app](https://mygradesapp.netlify.app)
+- 🔧 **Backend API**: [https://github.com/MohamedAzoz/MyGrades](https://github.com/MohamedAzoz/MyGrades)
+
+## 📸 لقطات الشاشة
+
+> يمكنك إضافة لقطات شاشة للتطبيق هنا
+
+## 👤 المؤلف
+
+**Mohamed Azoz**
+
+- GitHub: [@MohamedAzoz](https://github.com/MohamedAzoz)
+
+## 📄 الترخيص
+
+هذا المشروع مفتوح المصدر.
+
+---
+
+<div align="center">
+
+⭐ إذا أعجبك المشروع، لا تنسى إضافة نجمة للمستودع!
+
+</div>
