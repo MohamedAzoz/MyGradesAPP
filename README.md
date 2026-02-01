@@ -177,13 +177,6 @@ ng serve
 
 ## 👤 المؤلف
 
-**Mohamed Azoz**
-
-- GitHub: [@MohamedAzoz](https://github.com/MohamedAzoz)
-
-## 📄 الترخيص
-
-هذا المشروع مفتوح المصدر.
 
 ---
 
